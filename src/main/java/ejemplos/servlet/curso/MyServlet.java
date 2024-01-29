@@ -17,13 +17,24 @@ public class MyServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		// send HTML page to client
+		// Pagina principal
 		out.println("<html>");
-		out.println("<head><title>Ejemplo HTML desde Servlet</title></head>");
+		out.println("<head><title>Ejemplo HTML con formulario desde Servlet</title></head>");
 		out.println("<body>");
-		out.println("<h1>Ejemplo Servlet mioooooo</h1>");
-		out.println("<p>Este es un ejemplo en el curso de Java para generar HTML desde un Servlet.</p>");
-		out.println("<p><a href=\"/myServlet2\">Vamos al otro Servlet</a></p>");
+		out.println("<h1>Formulario de saludo </h1>");
+		out.println("<p>Por favor, rellene los siguientes datos.</p>");
+
+		//Formulario
+		out.println("<form action=\"/myServlet2\" method=\"post\">");
+		out.println("  <label for=\"nombre\">Nombre:</label>");
+		out.println("  <input type=\"text\" id=\"nombre\" name=\"nombre\">");
+		out.println("  <label for=\"apellido\">Apellido:</label>");
+		out.println("  <input type=\"text\" id=\"apellido\" name=\"apellido\">");
+		out.println("  <br>");
+		out.println("  <input type=\"submit\" value=\"Enviar\">");
+		out.println("</form>");
+
+		//out.println("<p><a href=\"/myServlet2\">Enviar</a></p>");
 		out.println("</body></html>");
 	}
 

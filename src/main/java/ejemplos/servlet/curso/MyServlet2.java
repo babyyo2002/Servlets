@@ -11,17 +11,22 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/myServlet2")
 public class MyServlet2 extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+						  HttpServletResponse response) throws ServletException, IOException {
+
+		// Obtener el valor del parámetro "nombre y apellido" del formulario
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		// send HTML page to client
+		// Pagina principal
 		out.println("<html>");
-		out.println("<head><title>Ejemplo HTML desde Servlet</title></head>");
+		out.println("<head><title>Saludo desde Servlet</title></head>");
 		out.println("<body>");
-		out.println("<h1>Bienvenido!!</h1>");
+		out.println("<h1>Hola, " + nombre + " " + apellido +"!</h1>");
+		out.println("</body></html>");
 	}
 
 }
