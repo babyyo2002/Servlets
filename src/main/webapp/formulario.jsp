@@ -5,10 +5,10 @@
 </head>
 <body>
     <h1>Formulario de saludo</h1>
-    <p>Por favor, rellene los siguientes datos.</p>
+    <p>Por favor, rellene los siguientes datos del formulario.</p>
 
-    <form action="/myServlet2" method="post">
-        <label for="nombreJSP">Nombre:</label>
+    <form action="myServlet2" method="post">
+        <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre">
         <label for="apellido">Apellido:</label>
         <input type="text" id="apellido" name="apellido">

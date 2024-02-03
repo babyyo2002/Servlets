@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/myServlet2")
 public class MyServlet2 extends HttpServlet {
@@ -18,15 +18,22 @@ public class MyServlet2 extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		// Comprobar que se reciben los valores
+		System.out.println("Nombre: " + nombre);
+		System.out.println("Apellido: " + apellido);
+
+		// Redirigir a la página JSP
+		request.getRequestDispatcher("saludo.jsp").forward(request, response);
+
+		//
+		//response.setContentType("text/html");
+		//PrintWriter out = response.getWriter();
 
 		// Pagina principal
-		out.println("<html>");
-		out.println("<head><title>Saludo desde Servlet</title></head>");
-		out.println("<body>");
-		out.println("<h1>Hola, " + nombre + " " + apellido +"!</h1>");
-		out.println("</body></html>");
+		//out.println("<html>");
+		//out.println("<head><title>Saludo desde Servlet</title></head>");
+		//out.println("<body>");
+		//out.println("<h1>Hola, " + nombre + " " + apellido +"!</h1>");
+		//out.println("</body></html>");
 	}
-
 }
